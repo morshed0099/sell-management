@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../components/layout/Layout";
-import MainLayout from "../components/layout/MainLayout";
+import SellPageLayout from "../components/layout/SellPageLayout";
 
 export const router = createBrowserRouter([
   {
@@ -9,6 +9,6 @@ export const router = createBrowserRouter([
   },
   {
     path:"/sell",
-    element:<MainLayout />
+    element:<SellPageLayout />
   }
 ]);

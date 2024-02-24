@@ -8,19 +8,20 @@ const DrawerRightSide = () => {
 
   return (
     <div>
-      <div className="cursor-pointer relative" onClick={() => setOpent(!open)}>
-        <IoIosMenu size={40} color="black" />
+        <div className="cursor-pointer relative" onClick={() => setOpent(!open)}>
+        <IoIosMenu size={30} color="black" />
       </div>
       <div
-        className={`duration-300 absolute ease-linear transition-all w-full h-screen top-0 ${
-          open ? "bg-gray-600 bg-opacity-20" : "ml-[-1500px] bg-opacity-0  "
+        className={`duration-300 absolute ease-linear h-full w-full top-0 transition-all  ${
+          open ? "bg-black bg-opacity-40 w-[100%] absolute left-0 h-full top-0  " : "ml-[-1500px] absolute bg-opacity-0  "
         }`}
       >
-        <div className="flex ">
-          <div className="w-[200px] bg-white h-screen">
-            <NavLink to="/dahsborad">
-              <li>Dashboard</li>
-            </NavLink>
+        <div className="flex sticky top-0">
+          <div className="w-[200px] bg-white h-screen ">
+            <div>
+            <NavLink to='/'><li>Dashboard</li></NavLink>
+            <NavLink to='/sell'><li>Point of Sell</li></NavLink>
+            </div>
           </div>
           <div onClick={() => setOpent(!open)}>
             <IoClose
