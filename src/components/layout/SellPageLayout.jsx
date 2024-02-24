@@ -1,9 +1,11 @@
 import CartFooter from "../ui/CartFooter";
 import CartList from "../ui/CartList";
 import CartMenu from "../ui/CartMenu";
+import CategoyButton from "../ui/CategoyButton";
 import CustomerView from "../ui/CustomerView";
 import DrawerRightSide from "../ui/DrawerRightSide";
 import Modal from "../ui/Modal";
+import Searchbar from "../ui/Searchbar";
 import TotalPrice from "../ui/TotalPrice";
 
 const SellPageLayout = () => {
@@ -21,7 +23,14 @@ const SellPageLayout = () => {
         <CartFooter />
       </div>
       <div className="flex-1 w-full  h-screen">
-        <h1 className="min-h-[400px]">hehe</h1>
+        <div>
+          <div>
+            <Searchbar />
+          </div>
+          <div>
+            <CategoyButton  />
+          </div>
+        </div>
       </div>
     </div>
   );

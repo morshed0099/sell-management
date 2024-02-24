@@ -13,10 +13,8 @@ const ShippingInput = () => {
       <Input label="Zip Code" type="text" />
       <Input label="Street" type="text" />
       <Input label="Zip Code" type="text" />
-      <Input label="Street" type="text" />
-      <Input label="Zip Code" type="text" />
       <div>
-        <Button name="Submit" />
+        <Button outline={null} name="Submit" />
       </div>
     </div>
   );
