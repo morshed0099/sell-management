@@ -1,6 +1,9 @@
+import { useState } from "react";
 import DrawerRightSide from "../ui/DrawerRightSide";
 
 const MainLayout = () => {
+  const [open, setOpent] = useState(false);
+
   return (
     <div className="flex gap-2 relative">
       <div className="flex-1 w-full  h-screen">
