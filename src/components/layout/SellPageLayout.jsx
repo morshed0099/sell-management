@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CartFooter from "../ui/CartFooter";
 import CartList from "../ui/CartList";
 import CartMenu from "../ui/CartMenu";
@@ -12,14 +12,15 @@ import TotalPrice from "../ui/TotalPrice";
 
 const SellPageLayout = () => {
   const [addToCart, setAddToCart] = useState([]);
+  const [discount, setDiscount] = useState(0);
   let array = [];
 
   const hadelCart = (card) => {
     const exit = addToCart.find((el) => el?.name === card?.name);
     if (exit) {
       const oldData = addToCart.filter((el) => el.name !== exit.name);
-      console.log(oldData);
       exit.quantity = Number(exit.quantity) + Number(card?.quantity);
+      exit.price = exit.quantity * card.price;
       array.push(...oldData, exit);
       setAddToCart(array);
     } else {
@@ -27,7 +28,7 @@ const SellPageLayout = () => {
       setAddToCart(array);
     }
   };
-
+  
   return (
     <div className="relative">
       <div className="z-50 relative">
@@ -44,8 +45,8 @@ const SellPageLayout = () => {
             addToCart?.map((product, idx) => (
               <CartList key={idx} product={product} />
             ))}
-          <TotalPrice />
-          <CartFooter />
+          <TotalPrice addToCart={addToCart} discount={discount} />
+          <CartFooter setDiscount={setDiscount} />
         </div>
         <div className="flex-1 px-1">
           <div>

@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
+// eslint-disable-next-line react/prop-types
+
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { FiEdit } from "react-icons/fi";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
-// eslint-disable-next-line react/prop-types
 const CartList = ({ product }) => {
-  console.log(product);
+
   return (
     <div className="flex items-center mt-2 gap-2">
       <div>
