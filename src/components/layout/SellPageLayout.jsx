@@ -10,7 +10,7 @@ const SellPageLayout = () => {
   return (
     <div className="lg:flex-row flex-col relative flex flex-grow gap-2 ">
       <Modal />
-      <div className="flex-2 border w-full p-2 h-screen">
+      <div className="flex-1 border w-full p-2 h-screen">
         <div className="flex gap-4">
           <DrawerRightSide />
           <CartMenu />
@@ -20,8 +20,8 @@ const SellPageLayout = () => {
         <TotalPrice />
         <CartFooter />
       </div>
-      <div className="flex-2 w-full  h-screen">
-        <h1>hehe</h1>
+      <div className="flex-1 w-full  h-screen">
+        <h1 className="min-h-[400px]">hehe</h1>
       </div>
     </div>
   );
