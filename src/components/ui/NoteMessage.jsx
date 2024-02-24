@@ -2,7 +2,7 @@ import Button from "./Button";
 
 const NoteMessage = () => {
   return (
-    <div className="flex flex-col">
+    <div className="flex p-4 flex-col">
       <textarea
         className="border rounded-md px-4 p-2 mt-2"
         placeholder="type here your note"

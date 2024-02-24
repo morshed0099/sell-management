@@ -12,7 +12,7 @@ const DrawerRightSide = () => {
         <IoIosMenu size={30} color="black" />
       </div>
       <div
-        className={`duration-300 absolute ease-linear h-full w-full top-0 transition-all  ${
+        className={`duration-300 z-50 absolute ease-linear h-full w-full top-0 transition-all  ${
           open ? "bg-black bg-opacity-40 w-[100%] absolute left-0 h-full top-0  " : "ml-[-1500px] absolute bg-opacity-0  "
         }`}
       >
