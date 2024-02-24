@@ -7,19 +7,19 @@ const CartMenu = () => {
       <div className="flex justify-evenly flex-wrap gap-2 md:gap-1 lg:gap-4 items-center ">
         <div className="flex gap-2 px-2 py-1 bg-[#e7e9f6] rounded-md  items-center">
           <FiEdit size={15} color="#5c6ac4" />
-          <p className="text-[#6d7aca] ">Note</p>
+          <p className="text-[#6d7aca] text-[12px]">Note</p>
         </div>
         <div className="flex gap-2 px-2 py-1 bg-[#e7e9f6] rounded-md  items-center">
           <PiVanDuotone size={15} color="#5c6ac4" />
-          <p className="text-[#6d7aca] ">Shipping</p>
+          <p className="text-[#6d7aca]  text-[12px]">Shipping</p>
         </div>
         <div className="flex gap-2 px-2 py-1 bg-[#e7e9f6] rounded-md  items-center">
           <FiPower size={15} color="#5c6ac4" />
-          <p className="text-[#6d7aca] ">Hold Order</p>
+          <p className="text-[#6d7aca] text-[12px]">Hold Order</p>
         </div>
         <div className="flex gap-2 px-2 py-1 bg-[#e7e9f6] rounded-md  items-center">
           <FaPlusCircle size={15} color="#5c6ac4" />
-          <p className="text-[#6d7aca] "> New Item</p>
+          <p className="text-[#6d7aca]  text-[12px]"> New Item</p>
         </div>
       </div>
     </div>
