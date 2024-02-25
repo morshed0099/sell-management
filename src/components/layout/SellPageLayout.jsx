@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CartFooter from "../ui/CartFooter";
 import CartList from "../ui/CartList";
 import CartMenu from "../ui/CartMenu";
@@ -9,12 +9,17 @@ import Modal from "../ui/Modal";
 import ProductContainer from "../ui/ProductContainer";
 import Searchbar from "../ui/Searchbar";
 import TotalPrice from "../ui/TotalPrice";
+import LeftSideDrawer from "../ui/LeftSideDrawer";
 
 const SellPageLayout = () => {
   const [addToCart, setAddToCart] = useState([]);
   const [discount, setDiscount] = useState(0);
-  let array = [];
 
+  // tax information is commeing from taxtype componet with connected modal footer seting button
+  const [tax, setTax] = useState(null);
+
+  // calculate card total product and existing produt will be not duplicate and quantity will be increasing
+  let array = [];
   const hadelCart = (card) => {
     const exit = addToCart.find((el) => el?.name === card?.name);
     if (exit) {
@@ -28,7 +33,7 @@ const SellPageLayout = () => {
       setAddToCart(array);
     }
   };
-  
+
   return (
     <div className="relative">
       <div className="z-50 relative">
@@ -46,12 +51,17 @@ const SellPageLayout = () => {
               <CartList key={idx} product={product} />
             ))}
           <TotalPrice addToCart={addToCart} discount={discount} />
-          <CartFooter setDiscount={setDiscount} />
+
+          {/* sell page footer connected with modal  */}
+          <CartFooter setDiscount={setDiscount} setTax={setTax} />
         </div>
         <div className="flex-1 px-1">
           <div>
             <Searchbar />
-            <CategoyButton />
+            <div className="flex justify-center gap-1 items-center">
+              <CategoyButton />
+              <LeftSideDrawer />
+            </div>
             <ProductContainer hadelCart={hadelCart} />
           </div>
         </div>

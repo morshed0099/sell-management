@@ -3,8 +3,9 @@ import { IoMdCloseCircleOutline } from "react-icons/io";
 import NoteMessage from "./NoteMessage";
 import ShippingInput from "./ShippingInput";
 import Discount from "./Discount";
+import TaxType from "./TaxType";
 
-const Modal = ({ modalProps, setModalProps,setDiscount }) => {
+const Modal = ({ modalProps, setModalProps, setDiscount, setTax }) => {
   return (
     <div
       className={`w-full duration-300 ease-linear transition  absolute
@@ -28,10 +29,24 @@ const Modal = ({ modalProps, setModalProps,setDiscount }) => {
               />
             </div>
           </div>
+          {/* sell page footer botton props and action with modal  */}
+          {/* adn also use cartmenu componet for sell page menue items  */}
           <div>{modalProps === "note" && <NoteMessage />}</div>
           <div>{modalProps === "Shipping" && <ShippingInput />}</div>
           <div>{modalProps === "New Item" && <ShippingInput />}</div>
-          <div>{modalProps === "Discount" && <Discount setModalProps={setModalProps}  setDiscount={setDiscount} />}</div>
+          <div>
+            {modalProps === "Settings" && (
+              <TaxType setModalProps={setModalProps} setTax={setTax} />
+            )}
+          </div>
+          <div>
+            {modalProps === "Discount" && (
+              <Discount
+                setModalProps={setModalProps}
+                setDiscount={setDiscount}
+              />
+            )}
+          </div>
         </div>
       </div>
     </div>
