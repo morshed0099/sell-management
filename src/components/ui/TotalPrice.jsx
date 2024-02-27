@@ -3,16 +3,30 @@
 import { useState } from "react";
 
 // eslint-disable-next-line react/prop-types
-const TotalPrice = ({ addToCart, discount }) => {
+const TotalPrice = ({ addToCart, discount, tax }) => {
+  const { taxOn, taxType } = tax;
   const [shipping, setShipping] = useState(0);
-  let tax;
-  const TaxType = "export";
-  const taxOn = "before discount";
 
-  if (TaxType && TaxType === "export") {
-    tax = 20;
-  } else {
-    tax = 40;
+  // taxOn,
+  // taxType,
+  // taxOn
+  // :
+  // "after"
+  // taxType
+  // :
+  // "inclusive"
+  //   taxOn
+  // :
+  // "before"
+  // taxType
+  // :
+  // "exclusive"
+
+  let taxs = 0;
+  if (taxType && taxType === "exclusive") {
+    taxs = 20;
+  } else if (taxType && taxType === "inclusive") {
+    taxs = 40;
   }
 
   let subTotal = 0;
@@ -20,24 +34,25 @@ const TotalPrice = ({ addToCart, discount }) => {
     (curren, total) => (subTotal = curren + total.price),
     0
   );
-  if (taxOn && taxOn === "before discount") {
-    total = subTotal + tax;
+  if (taxOn && taxOn === "before") {
+    total = subTotal + taxs;
+  }
+  if (taxOn && taxOn === "after") {
+    total = subTotal + taxs;
   }
   // discount calculate and shipping charge
   if (discount && discount.type === "Flat") {
     total = subTotal - discount.amount;
-    console.log(subTotal, "dfg");
   }
   if (discount && discount.type !== "Flat") {
     total = subTotal - (subTotal * discount.amount) / 100;
-    console.log(subTotal, "try");
   }
 
   return (
     <>
       <div className="flex justify-end">
         <div>
-          <div className="flex mt-4 px-2 justify-end ">
+          <div className="flex  mt-4 px-2 justify-end ">
             <div className="border-b w-full border-t px-4 flex items-center justify-between">
               <p className="text-[12px] text-[#8a96a0]">Subtotal </p>
               <p>${subTotal}</p>
@@ -46,7 +61,7 @@ const TotalPrice = ({ addToCart, discount }) => {
           <div className="flex px-2   justify-end">
             <div className="border-b px-4 w-full flex items-center justify-between gap-20 ">
               <p className="text-[12px] text-[#8a96a0]">TAX </p>
-              <p>${tax}</p>
+              <p>${taxs}</p>
             </div>
           </div>
           <div className="flex px-2 justify-end">
@@ -88,8 +103,8 @@ const TotalPrice = ({ addToCart, discount }) => {
         </div>
         <div>
           <p className="text-1xxl font-semibold text-[#3674d9]">
-            {(shipping && shipping > 0) || (subTotal && subTotal > 0 || total)
-              ? total + shipping || subTotal + shipping
+            {(shipping && shipping > 0) || (subTotal && subTotal > 0) || total
+              ? total + shipping + taxs || subTotal + shipping + taxs
               : 0}
             $
           </p>

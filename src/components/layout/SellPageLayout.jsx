@@ -16,7 +16,7 @@ const SellPageLayout = () => {
   const [discount, setDiscount] = useState(0);
 
   // tax information is commeing from taxtype componet with connected modal footer seting button
-  const [tax, setTax] = useState(null);
+  const [tax, setTax] = useState({ });
 
   // calculate card total product and existing produt will be not duplicate and quantity will be increasing
   let array = [];
@@ -50,7 +50,11 @@ const SellPageLayout = () => {
             addToCart?.map((product, idx) => (
               <CartList key={idx} product={product} />
             ))}
-          <TotalPrice addToCart={addToCart} discount={discount} />
+
+          {/* totap price page collec data from modal and other page for calculating 
+            those page are discoung taxtype and also collect product   */}
+
+          <TotalPrice tax={tax} addToCart={addToCart} discount={discount} />
 
           {/* sell page footer connected with modal  */}
           <CartFooter setDiscount={setDiscount} setTax={setTax} />

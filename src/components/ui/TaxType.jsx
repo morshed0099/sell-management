@@ -2,7 +2,7 @@ import { useState } from "react";
 import Button from "./Button";
 
 // eslint-disable-next-line react/prop-types
-const TaxType = ({setModalProps,setTax}) => {
+const TaxType = ({ setModalProps, setTax }) => {
   const [taxOn, setTaxOn] = useState(null);
   const [taxType, setType] = useState(null);
   const [taxOption, setTaxOption] = useState("Tax On");
@@ -12,8 +12,8 @@ const TaxType = ({setModalProps,setTax}) => {
       taxOn,
       taxType,
     };
-    setTax(tax)
-    setModalProps(null)
+    setTax(tax);
+    setModalProps(null);
   };
 
   return (
